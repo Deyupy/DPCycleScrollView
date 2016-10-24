@@ -37,10 +37,6 @@ class ViewController: UIViewController, DPCycleScrollViewDelegate {
         addNetScrollView()
         
         print("----"+NSHomeDirectory())
-        
-        let image = UIImageView(frame: CGRect(x: 0, y: 400, width: 200, height: 100))
-        image.sd_setImage(with: URL(string: "http://image.mifengkong.cn/qianba/organization_id_36/579f00415e54f658392338.png"), placeholderImage: UIImage(named: "placeHolder")!)
-        view.addSubview(image)
     }
     
     /// 添加本地图片
@@ -65,6 +61,8 @@ class ViewController: UIViewController, DPCycleScrollViewDelegate {
     //MARK: - 代理
     func didSelectCycleScrollViewItem(_ cycleScrollView: DPCycleScrollView, index: NSInteger) {
         print("---select -- \(index)")
+        UIApplication.shared.open(URL(string: "http://www.baidu.com")!, options: [:]) { (false) in
+        }
     }
     
     override func didReceiveMemoryWarning() {
