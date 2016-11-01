@@ -106,6 +106,22 @@ class DPCycleScrollView: UIView, UICollectionViewDataSource, UICollectionViewDel
     var delegate : DPCycleScrollViewDelegate?
 
     //MARK: - 自定义样式
+    /** 每张图片对应要显示的文字数组 */
+    var titlesGroup : NSMutableArray? {
+        didSet {
+            if (titlesGroup?.count)! > 1 {
+                titlesGroup?.insert((titlesGroup?.lastObject)!, at: 0)
+                titlesGroup?.add((titlesGroup?.firstObject)!)
+            }
+        }
+    }
+    
+    /** 设置文本样式 */
+    var titleLabelTextColor: UIColor?
+    var titleLabelTextFont: UIFont?
+    var titleLabelBackgroundColor: UIColor?
+    var titleLabelHeight: CGFloat?
+    
     /** 轮播图片的ContentMode，默认为 UIViewContentModeScaleToFill */
     var bannerImageViewContentMode : UIViewContentMode?
     
@@ -201,9 +217,10 @@ class DPCycleScrollView: UIView, UICollectionViewDataSource, UICollectionViewDel
      
      - returns: 轮播图对象
      */
-    class func initCycleScrollView(_ frame: CGRect, imageNamesGroup: NSArray) -> DPCycleScrollView {
+    class func initCycleScrollView(_ frame: CGRect, imageNamesGroup: NSArray, delegate: DPCycleScrollViewDelegate) -> DPCycleScrollView {
         let cycleScrollView = DPCycleScrollView(frame: frame)
         cycleScrollView.localizationImageNamesGroup = imageNamesGroup
+        cycleScrollView.delegate = delegate
         
         return cycleScrollView
     }
@@ -309,6 +326,22 @@ class DPCycleScrollView: UIView, UICollectionViewDataSource, UICollectionViewDel
         }else {
         
             cell.imageView.image = UIImage(named: imagePathsGroup![(indexPath as NSIndexPath).row] as! String)
+        }
+        
+        if titlesGroup != nil {
+            cell.setTitleLabelText((titlesGroup![indexPath.row] as? String)!)
+        }
+        if titleLabelTextColor != nil {
+            cell.titleLabelTextColor = titleLabelTextColor
+        }
+        if titleLabelTextFont != nil {
+            cell.titleLabelTextFont = titleLabelTextFont
+        }
+        if titleLabelBackgroundColor != nil {
+            cell.titleLabelBackgroundColor = titleLabelBackgroundColor
+        }
+        if titleLabelHeight != nil {
+            cell.titleLabelHeight = titleLabelHeight
         }
         
         return cell
