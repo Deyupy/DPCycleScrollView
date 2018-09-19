@@ -20,11 +20,11 @@
 */
 class func initCycleScrollView(_ frame: CGRect, imageNamesGroup: NSArray, delegate: DPCycleScrollViewDelegate) -> DPCycleScrollView {
 
-let cycleScrollView = DPCycleScrollView(frame: frame)
-cycleScrollView.localizationImageNamesGroup = imageNamesGroup
-cycleScrollView.delegate = delegate
+	let cycleScrollView = DPCycleScrollView(frame: frame)
+	cycleScrollView.localizationImageNamesGroup = imageNamesGroup
+	cycleScrollView.delegate = delegate
 
-return cycleScrollView
+	return cycleScrollView
 }
 ```
 #### 2 加载网络图片
@@ -40,11 +40,11 @@ return cycleScrollView
 */
 class func initCycleScrollView(_ frame: CGRect, placeholderImage: UIImage, delegate: DPCycleScrollViewDelegate) -> DPCycleScrollView {
 
-let cycleScrollView = DPCycleScrollView(frame: frame)
-cycleScrollView.delegate = delegate
-cycleScrollView.placeholderImage = placeholderImage
+	let cycleScrollView = DPCycleScrollView(frame: frame)
+	cycleScrollView.delegate = delegate
+	cycleScrollView.placeholderImage = placeholderImage
 
-return cycleScrollView
+	return cycleScrollView
 }
 ```
 ### 一、gif示例
