@@ -15,7 +15,7 @@
  * 本地图片轮播初始化方式
  * parameter frame           	frame
  * parameter imageNamesGroup 	本地图片数组
- * returns 						轮播图对象
+ * returns 			轮播图对象
 */
 class func initCycleScrollView(_ frame: CGRect, imageNamesGroup: NSArray, delegate: DPCycleScrollViewDelegate) -> DPCycleScrollView {
 
@@ -31,11 +31,11 @@ return cycleScrollView
 /**
  * 网络图片轮播初始化方式
  * 
- * parameter frame   			frame
+ * parameter frame   		frame
  * parameter placeholderImage	占位图
  * parameter delegate       	delegate
 	
- * returns						轮播图对象
+ * returns			轮播图对象
 */
 class func initCycleScrollView(_ frame: CGRect, placeholderImage: UIImage, delegate: DPCycleScrollViewDelegate) -> DPCycleScrollView {
 
